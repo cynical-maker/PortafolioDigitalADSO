@@ -428,7 +428,33 @@ body.modo-oscuro .habilidades li {
   border-color: rgba(0, 72, 255, 0.28);
 }
  
+.enlaces-tarjeta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
 .tarjeta a { color: #00CFFF; font-weight: 600; text-decoration: none; font-size: 0.85em; }
+
+.tarjeta .enlace-github {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.tarjeta .enlace-github .icono-github {
+  display: block;
+  width: 16px;
+  height: 16px;
+  max-width: 16px;
+  max-height: 16px;
+  flex: 0 0 16px;
+  fill: currentColor;
+}
+
 body.modo-oscuro .tarjeta a { color: #0048FF; }
 .tarjeta.oculta { display: none; }
  
@@ -528,8 +554,8 @@ footer {
   border-top: 1px solid rgba(0, 207, 255, 0.1);
   backdrop-filter: blur(10px);
   transition: all 0.4s;
-<<<<<<< HEAD
-=======
+
+
 }
 body.modo-oscuro footer {
   background: rgba(208, 238, 255, 0.8);
@@ -552,7 +578,7 @@ body.modo-oscuro footer {
 
 .estado-exito {
   color: #198754; /* Verde para éxito */
->>>>>>> 93d1283eb1eb22a703684e11af82546630179016
+
 }
 body.modo-oscuro footer {
   background: rgba(208, 238, 255, 0.8);
