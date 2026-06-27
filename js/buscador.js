@@ -1,17 +1,17 @@
-const inputBuscador = document.getElementById("buscadorHabilidad");
-const tarjetas = document.querySelectorAll(".tarjeta");
+document.addEventListener("DOMContentLoaded", () => {
+  const inputBuscador = document.getElementById("buscadorHabilidad");
+  const tarjetas = document.querySelectorAll(".tarjeta");
 
-inputBuscador.addEventListener("input", () => {
-  const texto = inputBuscador.value.toLowerCase().trim();
+  if (!inputBuscador) return;
 
- 
- tarjetas.forEach((tarjeta) => {
-    const habilidades = tarjeta.dataset.habilidades.toLowerCase();
+  inputBuscador.addEventListener("input", () => {
+    const texto = inputBuscador.value.toLowerCase().trim();
 
-    if (habilidades.includes(texto)) {
-      tarjeta.classList.remove("oculta");
-    } else {
-      tarjeta.classList.add("oculta");
-    }
+    tarjetas.forEach((tarjeta) => {
+      const habilidades = tarjeta.dataset.habilidades || tarjeta.textContent;
+      const coincide = habilidades.toLowerCase().includes(texto);
+
+      tarjeta.classList.toggle("oculta", !coincide);
+    });
   });
 });

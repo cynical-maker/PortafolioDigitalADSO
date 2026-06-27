@@ -554,8 +554,8 @@ footer {
   border-top: 1px solid rgba(0, 207, 255, 0.1);
   backdrop-filter: blur(10px);
   transition: all 0.4s;
-<<<<<<< HEAD
-=======
+
+
 }
 body.modo-oscuro footer {
   background: rgba(208, 238, 255, 0.8);
@@ -578,7 +578,7 @@ body.modo-oscuro footer {
 
 .estado-exito {
   color: #198754; /* Verde para éxito */
->>>>>>> 93d1283eb1eb22a703684e11af82546630179016
+
 }
 body.modo-oscuro footer {
   background: rgba(208, 238, 255, 0.8);
