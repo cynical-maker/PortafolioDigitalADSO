@@ -1,3 +1,4 @@
+
 /* ===========================================================
    ACADEX — Azul Eléctrico · Plasma · Fondo de fibra óptica
    Estructura original conservada · modo-oscuro = modo claro
@@ -527,6 +528,31 @@ footer {
   border-top: 1px solid rgba(0, 207, 255, 0.1);
   backdrop-filter: blur(10px);
   transition: all 0.4s;
+<<<<<<< HEAD
+=======
+}
+body.modo-oscuro footer {
+  background: rgba(208, 238, 255, 0.8);
+  color: #0048FF;
+}
+.mensaje-estado {
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.estado-error {
+  color: #dc3545; /* Rojo para errores */
+}
+
+.estado-info {
+  color: #0d6efd; /* Azul mientras se envía */
+}
+
+.estado-exito {
+  color: #198754; /* Verde para éxito */
+>>>>>>> 93d1283eb1eb22a703684e11af82546630179016
 }
 body.modo-oscuro footer {
   background: rgba(208, 238, 255, 0.8);

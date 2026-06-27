@@ -22,3 +22,5 @@ titulosAcordeon.forEach((titulo) => {
     contenido.classList.toggle("activo");
   });
 });
+
+
