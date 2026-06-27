@@ -45,4 +45,4 @@ Visual Studio Code para recargar automáticamente con cada cambio.
 
 ## Sitio publicado
 
-URL de GitHub Pages: [[pega aquí tu URL una vez publiques el sitio](https://cynical-maker.github.io/PortafolioDigitalADSO/)]
+URL de GitHub Pages: [(https://cynical-maker.github.io/PortafolioDigitalADSO/)]
