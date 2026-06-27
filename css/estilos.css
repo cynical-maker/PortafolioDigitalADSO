@@ -1,239 +1,553 @@
+
 /* ===========================================================
-   VARIABLES DE IDENTIDAD — PERSONALIZA estos valores con los
-   colores de tu empresa ficticia. El resto del archivo no
-   necesita modificarse para que el sitio funcione.
+   ACADEX — Azul Eléctrico · Plasma · Fondo de fibra óptica
+   Estructura original conservada · modo-oscuro = modo claro
    =========================================================== */
+ 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=Space+Grotesk:wght@500;700;800&display=swap');
+ 
 :root {
-  --color-primario: #2E75B6;        /* PERSONALIZA */
-  --color-secundario: #1A1A1A;      /* PERSONALIZA */
-  --color-fondo: #F5F7FA;           /* PERSONALIZA */
-  --color-fondo-oscuro: #1A1A1A;
-  --color-texto-oscuro: #F5F7FA;
-  --color-tarjeta: #FFFFFF;
+  --color-primario:     #00CFFF;
+  --color-secundario:   #0048FF;
+  --color-fondo:        #000814;
+  --color-fondo-oscuro: #00040F;
+  --color-texto-oscuro: #E8F8FF;
+  --color-tarjeta:      rgba(0, 207, 255, 0.05);
 }
-
+ 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-
+ 
+/* ── Canvas de fibra óptica (insertar con JS antes del </body>) ── */
+#canvas-fibra {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+ 
+/* ══ MODO OSCURO — default ══════════════════════════════════ */
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  background-color: var(--color-fondo);
-  color: var(--color-secundario);
-  transition: background-color 0.3s, color 0.3s;
+  font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+  background: #000814;
+  color: #E8F8FF;
+  transition: background 0.4s, color 0.3s;
+  min-height: 100vh;
+  position: relative;
 }
-
+ 
+/* ══ MODO CLARO — body.modo-oscuro ══════════════════════════ */
 body.modo-oscuro {
-  background-color: var(--color-fondo-oscuro);
-  color: var(--color-texto-oscuro);
+  background: #D0EEFF;
+  color: #002850;
 }
-
-body.modo-oscuro .tarjeta,
-body.modo-oscuro .acordeon-contenido,
-body.modo-oscuro .formulario {
-  background-color: #2A2A2A;
-  color: var(--color-texto-oscuro);
+body.modo-oscuro #canvas-fibra {
+  opacity: 0.18;
+  filter: saturate(0.5) brightness(1.8);
 }
-
-/* ---------- ENCABEZADO ---------- */
+ 
+/* ── ENCABEZADO ──────────────────────────────────────────── */
 .encabezado {
+  position: relative;
+  z-index: 10;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
-  padding: 40px 20px;
+  gap: 6px;
+  padding: 46px 24px 36px;
   text-align: center;
-  background-color: var(--color-primario);
-  color: white;
+  background: linear-gradient(180deg, rgba(0,207,255,0.1) 0%, transparent 100%);
+  border-bottom: 1px solid rgba(0, 207, 255, 0.3);
+  transition: background 0.4s;
 }
-
-.encabezado h1 { margin-top: 8px; }
-
-.logo { width: 70px; height: 70px; }
-
-.eslogan { font-style: italic; opacity: 0.9; }
-
-.boton-modo {
+body.modo-oscuro .encabezado {
+  background: linear-gradient(180deg, rgba(0,72,255,0.08) 0%, transparent 100%);
+  border-bottom-color: rgba(0, 72, 255, 0.2);
+}
+ 
+.encabezado::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 50%;
+  transform: translateX(-50%);
+  width: 280px; height: 1px;
+  background: linear-gradient(90deg, transparent, #00CFFF, #ffffff, #00CFFF, transparent);
+  opacity: 0.9;
+}
+body.modo-oscuro .encabezado::after {
+  background: linear-gradient(90deg, transparent, #0048FF, transparent);
+  opacity: 0.5;
+}
+ 
+.encabezado h1 {
+  font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
+  font-size: 2.1em;
+  font-weight: 800;
+  letter-spacing: 7px;
+  color: #FFFFFF;
+  text-transform: uppercase;
   margin-top: 10px;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 6px;
-  background-color: white;
-  color: var(--color-primario);
-  font-weight: bold;
-  cursor: pointer;
+  text-shadow:
+    0 0 20px rgba(0,207,255,0.9),
+    0 0 50px rgba(0,207,255,0.4),
+    0 0 100px rgba(0,100,255,0.2);
+  transition: color 0.3s, text-shadow 0.3s;
 }
-.boton-modo:hover { opacity: 0.85; }
-
-/* ---------- MENÚ ---------- */
+body.modo-oscuro .encabezado h1 {
+  color: #002050;
+  text-shadow: none;
+}
+ 
+.logo {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  border: 2px solid #00CFFF;
+  background: rgba(0, 207, 255, 0.1);
+  object-fit: cover;
+  box-shadow:
+    0 0 0 0 rgba(0,207,255,0.4),
+    0 0 24px rgba(0,207,255,0.3);
+  animation: logo-glow 2.5s ease-in-out infinite;
+}
+@keyframes logo-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(0,207,255,0.4), 0 0 24px rgba(0,207,255,0.3); }
+  50%       { box-shadow: 0 0 0 10px rgba(0,207,255,0), 0 0 40px rgba(0,207,255,0.6); }
+}
+body.modo-oscuro .logo {
+  border-color: #0048FF;
+  box-shadow: none;
+  animation: none;
+}
+ 
+.eslogan {
+  color: #00CFFF;
+  font-size: 0.78em;
+  letter-spacing: 3.5px;
+  text-transform: uppercase;
+  font-weight: 300;
+  opacity: 0.9;
+  transition: color 0.3s;
+}
+body.modo-oscuro .eslogan { color: #0048FF; opacity: 1; }
+ 
+/* Botón modo */
+.boton-modo {
+  position: absolute;
+  top: 18px; right: 18px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 16px;
+  border: 1px solid rgba(0, 207, 255, 0.55);
+  border-radius: 20px;
+  background: rgba(0, 207, 255, 0.07);
+  color: #00CFFF;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 0.75em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s;
+}
+.boton-modo::before {
+  content: '';
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: #00CFFF;
+  box-shadow: 0 0 8px #00CFFF, 0 0 20px rgba(0,207,255,0.6);
+  flex-shrink: 0;
+  animation: spark 1.8s ease-in-out infinite;
+}
+@keyframes spark {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.15; transform: scale(0.7); }
+}
+.boton-modo:hover {
+  background: rgba(0, 207, 255, 0.16);
+  border-color: #00CFFF;
+  color: #ffffff;
+  box-shadow: 0 0 16px rgba(0,207,255,0.3);
+}
+body.modo-oscuro .boton-modo {
+  background: rgba(0, 72, 255, 0.07);
+  color: #0048FF;
+  border-color: rgba(0, 72, 255, 0.4);
+}
+body.modo-oscuro .boton-modo::before {
+  background: #0048FF;
+  box-shadow: none;
+  animation: none;
+}
+body.modo-oscuro .boton-modo:hover {
+  background: rgba(0, 72, 255, 0.14);
+  color: #002050;
+}
+ 
+.icono-modo {
+  width: 17px; height: 17px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.7;
+  transition: filter 0.3s;
+}
+body.modo-oscuro .icono-modo {
+  filter: brightness(0);
+  opacity: 0.65;
+}
+ 
+@media (max-width: 400px) {
+  .boton-modo { position: static; margin-top: 12px; }
+}
+ 
+/* ── MENÚ ────────────────────────────────────────────────── */
 .menu {
+  position: relative;
+  z-index: 10;
   display: flex;
   justify-content: center;
-  padding: 14px;
-  background-color: var(--color-secundario);
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 9px 16px;
+  background: rgba(0, 8, 20, 0.75);
+  border-top:    1px solid rgba(0, 207, 255, 0.1);
+  border-bottom: 1px solid rgba(0, 207, 255, 0.18);
+  backdrop-filter: blur(12px);
+  transition: background 0.4s;
 }
+body.modo-oscuro .menu {
+  background: rgba(208, 238, 255, 0.8);
+  border-color: rgba(0, 72, 255, 0.16);
+}
+ 
 .menu a {
-  color: white;
+  color: #00CFFF;
   text-decoration: none;
-  font-weight: bold;
-  margin: 0 12px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 0.77em;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  transition: color 0.25s, background 0.25s;
 }
-.menu a:hover { text-decoration: underline; }
-
-/* ---------- SECCIONES GENERALES ---------- */
+.menu a:hover {
+  color: #FFFFFF;
+  background: rgba(0, 207, 255, 0.14);
+}
+body.modo-oscuro .menu a { color: #0048FF; }
+body.modo-oscuro .menu a:hover { color: #002050; background: rgba(0,72,255,0.1); }
+ 
+/* ── SECCIONES ───────────────────────────────────────────── */
 main {
+  position: relative;
+  z-index: 10;
   max-width: 960px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 30px 20px;
 }
-
-.seccion {
-  margin-bottom: 48px;
-}
-
+.seccion { margin-bottom: 48px; }
+ 
 .seccion h2 {
   color: var(--color-primario);
   margin-bottom: 16px;
-  border-bottom: 3px solid var(--color-primario);
-  display: inline-block;
-  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(0, 207, 255, 0.22);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding-bottom: 8px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.72em;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
 }
-
-/* ---------- ACORDEÓN (Misión / Visión / Valores) ---------- */
+.seccion h2::before {
+  content: '';
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--color-primario);
+  box-shadow: 0 0 8px var(--color-primario), 0 0 20px rgba(0,207,255,0.5);
+  flex-shrink: 0;
+}
+body.modo-oscuro .seccion h2 { color: #0048FF; border-bottom-color: rgba(0,72,255,0.22); }
+body.modo-oscuro .seccion h2::before { background: #0048FF; box-shadow: none; }
+ 
+/* ── ACORDEÓN ────────────────────────────────────────────── */
 .acordeon-titulo {
   display: block;
   width: 100%;
   text-align: left;
   padding: 12px 16px;
   margin-top: 8px;
-  border: none;
+  border: 1px solid rgba(0, 207, 255, 0.22);
   border-radius: 6px;
-  background-color: var(--color-primario);
-  color: white;
-  font-weight: bold;
+  background: rgba(0, 207, 255, 0.05);
+  color: #5DDFFF;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
   cursor: pointer;
+  font-size: 0.9em;
+  letter-spacing: 0.5px;
+  transition: all 0.3s;
 }
-.acordeon-titulo:hover { opacity: 0.9; }
-
+body.modo-oscuro .acordeon-titulo {
+  color: #0048FF;
+  border-color: rgba(0, 72, 255, 0.22);
+  background: rgba(0, 72, 255, 0.05);
+}
+.acordeon-titulo:hover {
+  background: rgba(0, 207, 255, 0.12);
+  color: #FFFFFF;
+  border-color: #00CFFF;
+  box-shadow: 0 0 12px rgba(0,207,255,0.15);
+}
+body.modo-oscuro .acordeon-titulo:hover {
+  color: #002050;
+  border-color: #0048FF;
+  box-shadow: none;
+}
+ 
 .acordeon-contenido {
   display: none;
   padding: 14px 16px;
-  background-color: var(--color-tarjeta);
-  border: 1px solid #E0E0E0;
+  background: rgba(0, 8, 20, 0.5);
+  border: 1px solid rgba(0, 207, 255, 0.15);
   border-top: none;
   border-radius: 0 0 6px 6px;
+  color: #C8EEFF;
+  line-height: 1.65;
+  font-size: 0.9em;
 }
-
+body.modo-oscuro .acordeon-contenido {
+  background: rgba(255,255,255,0.55);
+  color: #002050;
+}
 .acordeon-contenido.activo { display: block; }
-
-/* ---------- BUSCADOR ---------- */
+ 
+.lista-valores { padding-left: 20px; }
+.lista-valores li { margin-bottom: 10px; line-height: 1.5; }
+.lista-valores li:last-child { margin-bottom: 0; }
+ 
+/* ── BUSCADOR ────────────────────────────────────────────── */
 .buscador {
   width: 100%;
   max-width: 400px;
-  padding: 10px 14px;
+  padding: 10px 18px;
   margin-bottom: 20px;
-  border: 1px solid #C9C9C9;
-  border-radius: 6px;
-  font-size: 1em;
+  border: 1px solid rgba(0, 207, 255, 0.25);
+  border-radius: 24px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.92em;
+  background: rgba(0, 207, 255, 0.05);
+  color: #FFFFFF;
+  outline: none;
+  transition: all 0.3s;
 }
-
-/* ---------- EQUIPO ---------- */
+body.modo-oscuro .buscador {
+  background: rgba(255, 255, 255, 0.65);
+  color: #002050;
+  border-color: rgba(0, 72, 255, 0.25);
+}
+.buscador::placeholder { color: rgba(0, 207, 255, 0.38); }
+.buscador:focus {
+  border-color: #00CFFF;
+  box-shadow: 0 0 0 3px rgba(0,207,255,0.1), 0 0 20px rgba(0,207,255,0.15);
+}
+body.modo-oscuro .buscador:focus {
+  border-color: #0048FF;
+  box-shadow: 0 0 0 3px rgba(0,72,255,0.1);
+}
+ 
+/* ── EQUIPO ──────────────────────────────────────────────── */
 .grid-equipo {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
 }
-
+ 
 .tarjeta {
-  background-color: var(--color-tarjeta);
+  background: rgba(0, 10, 30, 0.6);
   border-radius: 10px;
-  padding: 20px;
+  padding: 22px;
   text-align: center;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 207, 255, 0.2);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s;
 }
-
+body.modo-oscuro .tarjeta {
+  background: rgba(255, 255, 255, 0.6);
+  border-color: rgba(0, 72, 255, 0.18);
+}
+.tarjeta:hover {
+  border-color: rgba(0, 207, 255, 0.6);
+  box-shadow: 0 0 20px rgba(0,207,255,0.1);
+}
+body.modo-oscuro .tarjeta:hover { border-color: rgba(0,72,255,0.45); box-shadow: none; }
+ 
 .tarjeta img {
-  width: 100px;
-  height: 100px;
+  width: 100px; height: 100px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 10px;
+  border: 2px solid #00CFFF;
+  box-shadow: 0 0 20px rgba(0,207,255,0.4);
 }
-
+body.modo-oscuro .tarjeta img { border-color: #0048FF; box-shadow: none; }
+ 
 .tarjeta .rol {
-  font-style: italic;
-  color: var(--color-primario);
-  margin-bottom: 8px;
+  color: #00CFFF;
+  font-size: 0.82em;
+  margin-bottom: 10px;
+  letter-spacing: 0.5px;
+  transition: color 0.3s;
 }
-
+body.modo-oscuro .tarjeta .rol { color: #0048FF; }
+ 
 .habilidades {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 8px;
+  gap: 6px;
   margin: 10px 0;
 }
 .habilidades li {
-  background-color: var(--color-primario);
-  color: white;
-  padding: 4px 10px;
-  border-radius: 14px;
-  font-size: 0.85em;
+  background: rgba(0, 207, 255, 0.08);
+  color: #5DDFFF;
+  padding: 3px 10px;
+  border-radius: 20px;
+  font-size: 0.77em;
+  border: 1px solid rgba(0, 207, 255, 0.35);
+  transition: all 0.3s;
 }
-
-.tarjeta a {
-  color: var(--color-primario);
-  font-weight: bold;
-  text-decoration: none;
+body.modo-oscuro .habilidades li {
+  background: rgba(0, 72, 255, 0.08);
+  color: #0048FF;
+  border-color: rgba(0, 72, 255, 0.28);
 }
-.tarjeta a:hover { text-decoration: underline; }
-
-/* Clase que usará el buscador de habilidades para esconder tarjetas
-   que no coinciden con la búsqueda. */
+ 
+.tarjeta a { color: #00CFFF; font-weight: 600; text-decoration: none; font-size: 0.85em; }
+body.modo-oscuro .tarjeta a { color: #0048FF; }
 .tarjeta.oculta { display: none; }
-
-/* ---------- FORMULARIO DE CONTACTO ---------- */
+ 
+/* ── FORMULARIO ──────────────────────────────────────────── */
 .formulario {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 12px;
   max-width: 480px;
-  background-color: var(--color-tarjeta);
-  padding: 20px;
+  background: rgba(0, 10, 30, 0.6);
+  padding: 26px;
   border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 207, 255, 0.2);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s;
 }
-
-.formulario label { font-weight: bold; }
-
+body.modo-oscuro .formulario {
+  background: rgba(255, 255, 255, 0.6);
+  border-color: rgba(0, 72, 255, 0.18);
+}
+ 
+.formulario label {
+  font-weight: 600;
+  font-size: 0.77em;
+  color: #00CFFF;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+body.modo-oscuro .formulario label { color: #0048FF; }
+ 
 .formulario input,
 .formulario textarea {
-  padding: 8px 10px;
-  border: 1px solid #C9C9C9;
+  padding: 10px 14px;
+  border: 1px solid rgba(0, 207, 255, 0.22);
   border-radius: 6px;
-  font-family: inherit;
+  font-family: 'Inter', inherit;
+  font-size: 0.92em;
+  background: rgba(0, 8, 20, 0.6);
+  color: #FFFFFF;
+  outline: none;
+  transition: all 0.3s;
 }
-
+body.modo-oscuro .formulario input,
+body.modo-oscuro .formulario textarea {
+  background: rgba(255, 255, 255, 0.75);
+  color: #002050;
+  border-color: rgba(0, 72, 255, 0.22);
+}
+.formulario input:focus,
+.formulario textarea:focus {
+  border-color: #00CFFF;
+  box-shadow: 0 0 0 3px rgba(0,207,255,0.1), 0 0 16px rgba(0,207,255,0.12);
+}
+body.modo-oscuro .formulario input:focus,
+body.modo-oscuro .formulario textarea:focus {
+  border-color: #0048FF;
+  box-shadow: 0 0 0 3px rgba(0,72,255,0.1);
+}
+ 
 .formulario button {
   align-self: flex-start;
-  padding: 10px 18px;
+  padding: 10px 26px;
   border: none;
-  border-radius: 6px;
-  background-color: var(--color-primario);
-  color: white;
-  font-weight: bold;
+  border-radius: 24px;
+  background: linear-gradient(135deg, #0048FF 0%, #00CFFF 100%);
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
   cursor: pointer;
+  font-size: 0.88em;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 18px rgba(0,150,255,0.4);
+  transition: all 0.3s;
 }
-.formulario button:hover { opacity: 0.9; }
-
-.mensaje-estado { font-weight: bold; }
-.mensaje-estado.exito { color: #2E7D32; }
-.mensaje-estado.error { color: #C0392B; }
-
-/* ---------- FOOTER ---------- */
+.formulario button:hover {
+  box-shadow: 0 4px 28px rgba(0,207,255,0.55);
+  transform: translateY(-1px);
+}
+ 
+.mensaje-estado { font-weight: 600; font-size: 0.9em; }
+.mensaje-estado.exito { color: #00FFC8; }
+.mensaje-estado.error { color: #FF4D6D; }
+body.modo-oscuro .mensaje-estado.exito { color: #007A50; }
+body.modo-oscuro .mensaje-estado.error { color: #C00030; }
+ 
+/* ── FOOTER ──────────────────────────────────────────────── */
 footer {
+  position: relative;
+  z-index: 10;
   text-align: center;
   padding: 20px;
-  font-size: 0.9em;
-  background-color: var(--color-secundario);
-  color: white;
+  font-size: 0.8em;
+  background: rgba(0, 4, 15, 0.88);
+  color: rgba(0, 207, 255, 0.4);
+  letter-spacing: 0.5px;
+  border-top: 1px solid rgba(0, 207, 255, 0.1);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s;
+}
+body.modo-oscuro footer {
+  background: rgba(208, 238, 255, 0.8);
+  color: #0048FF;
+}
+.mensaje-estado {
+  margin-top: 15px;
+  font-weight: bold;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+.estado-error {
+  color: #dc3545; /* Rojo para errores */
+}
+
+.estado-info {
+  color: #0d6efd; /* Azul mientras se envía */
+}
+
+.estado-exito {
+  color: #198754; /* Verde para éxito */
 }
