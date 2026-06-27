@@ -9,7 +9,7 @@ Regional Bolívar.
 
 - [Michael Morales integrante 1] - Líder del repositorio / Identidad de marca
 - [Stiven Conrado integrante 2] - Buscador de integrantes por habilidad
-- [Erick Cantillo integrante 3] - Formulario de contacto con validación
+- [Erick Cantillo integrante 3] - Formulario de contacto con validación / css
 
 ## Estructura del proyecto
 
