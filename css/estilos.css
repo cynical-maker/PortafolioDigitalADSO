@@ -428,7 +428,33 @@ body.modo-oscuro .habilidades li {
   border-color: rgba(0, 72, 255, 0.28);
 }
  
+.enlaces-tarjeta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
 .tarjeta a { color: #00CFFF; font-weight: 600; text-decoration: none; font-size: 0.85em; }
+
+.tarjeta .enlace-github {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.tarjeta .enlace-github .icono-github {
+  display: block;
+  width: 16px;
+  height: 16px;
+  max-width: 16px;
+  max-height: 16px;
+  flex: 0 0 16px;
+  fill: currentColor;
+}
+
 body.modo-oscuro .tarjeta a { color: #0048FF; }
 .tarjeta.oculta { display: none; }
  
