@@ -20,11 +20,13 @@ PortafolioDigitalADSO/
 │   └── estilos.css
 ├── js/
 │   └── main.js
+|   └── buscador.js
+|   └── formulario.js
 ├── img/
 │   ├── logo.png
 │   ├── modo-oscuro.png
-│   ├── avatar-placeholder.svg
 │   ├── stiven.jpeg
+|   └── michael.jpeg
 │   └── erickjr.jpg
 └── README.md
 ```
@@ -38,9 +40,9 @@ Visual Studio Code para recargar automáticamente con cada cambio.
 
 - [x] Modo claro / oscuro
 - [x] Acordeón de Misión, Visión y Valores
-- [ ] Buscador de integrantes por habilidad (rama `feature/buscador-habilidades`)
-- [ ] Formulario de contacto con validación (rama `feature/formulario-contacto`)
+- [x] Buscador de integrantes por habilidad (rama `feature/buscador-habilidades`)
+- [x] Formulario de contacto con validación (rama `feature/formulario-contacto`)
 
 ## Sitio publicado
 
-URL de GitHub Pages: [pega aquí tu URL una vez publiques el sitio]
+URL de GitHub Pages: [[pega aquí tu URL una vez publiques el sitio](https://cynical-maker.github.io/PortafolioDigitalADSO/)]
