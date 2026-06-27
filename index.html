@@ -3,18 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[NOMBRE DE TU EMPRESA]</title>                              <!-- PERSONALIZA -->
+
+  <title>ACADEX</title>
+
   <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-
+  
   <header class="encabezado">
-    <img src="img/logo-placeholder.svg" alt="Logo de la empresa" class="logo"> <!-- PERSONALIZA: reemplaza por tu logo real -->
-    <h1>[NOMBRE DE TU EMPRESA]</h1>                                  <!-- PERSONALIZA -->
-    <p class="eslogan">[Escribe aquí el eslogan de tu empresa]</p>    <!-- PERSONALIZA -->
-    <button id="btnModo" class="boton-modo">Modo oscuro</button>
-  </header>
-
+  <img src="img/logo.png" alt="Logo de la empresa" class="logo">
+  <h1>ACADEX</h1>
+  <p class="eslogan">La excelencia en la educación</p>
+  <button id="btnModo" class="boton-modo">
+    <img src="img/modo-oscuro.png" alt="" class="icono-modo">
+    Modo oscuro
+  </button>
+</header>
   <nav class="menu">
     <a href="#empresa">Empresa</a>
     <a href="#equipo">Equipo</a>
@@ -29,13 +33,29 @@
 
       <div class="acordeon">
         <button class="acordeon-titulo">Misión</button>
-        <p class="acordeon-contenido">[Escribe aquí la misión de tu empresa]</p>      <!-- PERSONALIZA -->
+        <p class="acordeon-contenido">Proveer a las instituciones educativas una plataforma de gestión académica innovadora, 
+          segura e intuitiva que simplifique y optimice sus procesos administrativos. Nuestro propósito es empoderar a docentes, directivos, 
+          estudiantes y familias mediante herramientas tecnológicas de vanguardia, 
+          permitiéndoles enfocar su tiempo y energía en lo verdaderamente importante: el aprendizaje humano, el desarrollo integral y 
+          la excelencia en la educación.</p>      <!-- PERSONALIZA -->
 
         <button class="acordeon-titulo">Visión</button>
-        <p class="acordeon-contenido">[Escribe aquí la visión de tu empresa]</p>      <!-- PERSONALIZA -->
+        <p class="acordeon-contenido">Convertirnos en la plataforma digital líder y el referente definitivo en la transformación 
+          tecnológica del sector educativo. Aspiramos a construir un ecosistema 
+          donde la gestión académica sea sinónimo de agilidad, colaboración y transparencia, 
+          impulsando un futuro donde cada institución tenga a su alcance los recursos necesarios
+          para alcanzar su máximo potencial.</p>      <!-- PERSONALIZA -->
 
         <button class="acordeon-titulo">Valores</button>
-        <p class="acordeon-contenido">[Escribe aquí los valores de tu empresa]</p>    <!-- PERSONALIZA -->
+        <div class="acordeon-contenido">
+          <ul class="lista-valores">
+            <li><strong>Innovación:</strong> Desarrollamos tecnología de vanguardia para mantener a las instituciones educativas siempre un paso adelante.</li>
+            <li><strong>Excelencia:</strong> Hacemos honor a nuestro eslogan, entregando una plataforma de primer nivel, rápida y precisa.</li>
+            <li><strong>Seguridad:</strong> Protegemos la información de estudiantes y colegios con los más altos estándares de privacidad.</li>
+            <li><strong>Simplicidad:</strong> Creamos herramientas intuitivas y fáciles de usar que simplifican el día a día de toda la comunidad.</li>
+            <li><strong>Compromiso:</strong> Brindamos un soporte cercano y humano, respaldando siempre a docentes, directivos y familias.</li>
+          </ul>
+        </div>    <!-- PERSONALIZA -->
       </div>
     </section>
 
@@ -63,12 +83,63 @@
             <li>[Habilidad 1]</li>                                               <!-- PERSONALIZA -->
             <li>[Habilidad 2]</li>                                               <!-- PERSONALIZA -->
           </ul>
-          <a href="mailto:[tucorreo@ejemplo.com]">[tucorreo@ejemplo.com]</a>      <!-- PERSONALIZA -->
+          <div class="enlaces-tarjeta">
+            <a href="mailto:[tucorreo@ejemplo.com]">[tucorreo@ejemplo.com]</a>      <!-- PERSONALIZA -->
+            <a href="https://github.com/" class="enlace-github" target="_blank" rel="noopener noreferrer" aria-label="GitHub de [Tu nombre]">
+              <svg class="icono-github" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.52 2.87 8.35 6.84 9.71.5.1.68-.22.68-.49v-1.9c-2.78.62-3.37-1.22-3.37-1.22-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.9 1.57 2.36 1.12 2.93.86.09-.67.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.04 1.03-2.76-.1-.26-.45-1.31.1-2.72 0 0 .84-.28 2.75 1.05A9.3 9.3 0 0 1 12 6.93c.85 0 1.7.12 2.5.34 1.9-1.33 2.74-1.05 2.74-1.05.55 1.41.2 2.46.1 2.72.64.72 1.03 1.64 1.03 2.76 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9v2.82c0 .27.18.59.69.49A10.08 10.08 0 0 0 22 12.26C22 6.58 17.52 2 12 2Z"/>
+              </svg>
+              GitHub
+            </a>
+          </div>
         </article>
         <!-- ===== FIN TARJETA INTEGRANTE 1 ===== -->
 
+         <article class="tarjeta" data-habilidades="liderazgo, gestión de proyectos">
+          <img src="img/stiven.jpeg" alt="Foto de [Tu nombre]">         <!-- PERSONALIZA -->
+          <h3>Stiven Daniel Conrado Romero</h3>                                                    <!-- PERSONALIZA -->
+          <p class="rol">INTEGRANTE 2</p>                              <!-- PERSONALIZA -->
+          <p></p>           <!-- PERSONALIZA -->
+          <ul class="habilidades">
+            <li>"JAVA"</li>                                               <!-- PERSONALIZA -->
+            <li>"CSS"</li>                                               <!-- PERSONALIZA -->
+          </ul>
+          <div class="enlaces-tarjeta">
+            <a href="mailto:stivenconrado12@gmail.com">stivenconrado12@gmail.com</a>      <!-- PERSONALIZA -->
+            <a href="https://github.com/stivenconrado12-prog" class="enlace-github" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Stiven Daniel Conrado Romero">
+              <svg class="icono-github" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.52 2.87 8.35 6.84 9.71.5.1.68-.22.68-.49v-1.9c-2.78.62-3.37-1.22-3.37-1.22-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.9 1.57 2.36 1.12 2.93.86.09-.67.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.04 1.03-2.76-.1-.26-.45-1.31.1-2.72 0 0 .84-.28 2.75 1.05A9.3 9.3 0 0 1 12 6.93c.85 0 1.7.12 2.5.34 1.9-1.33 2.74-1.05 2.74-1.05.55 1.41.2 2.46.1 2.72.64.72 1.03 1.64 1.03 2.76 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9v2.82c0 .27.18.59.69.49A10.08 10.08 0 0 0 22 12.26C22 6.58 17.52 2 12 2Z"/>
+              </svg>
+              GitHub
+            </a>
+          </div>
+        </article>
+
         <!-- Cada compañero agrega su propia tarjeta aquí, dentro de su propia rama.
              Ver Anexo B de la guía para copiar la estructura exacta. -->
+
+        <article class="tarjeta" data-habilidades="liderazgo, gestión de proyectos">
+          <img src="img/erickjr.jpg" alt="Foto de Erick Cantillo">         <!-- PERSONALIZA -->
+          <h3>Erick Cantillo</h3>                                                    <!-- PERSONALIZA -->
+          <p class="rol">Integrante 3</p>                              <!-- PERSONALIZA -->
+          <p></p>           <!-- PERSONALIZA -->
+          <ul class="habilidades">
+            <li>Java</li>                                               <!-- PERSONALIZA -->
+            <li>HTML/CSS</li>  
+            <li>JavaScript</li>
+            <li>Python</li>
+            <li>SQL</li>                                              <!-- PERSONALIZA -->
+          </ul>
+          <div class="enlaces-tarjeta">
+            <a href="mailto:erickcantilloh@gmail.com">erickcantilloh@gmail.com</a>      <!-- PERSONALIZA -->
+            <a href="https://github.com/Erickxz6" class="enlace-github" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Erick Cantillo">
+              <svg class="icono-github" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.52 2.87 8.35 6.84 9.71.5.1.68-.22.68-.49v-1.9c-2.78.62-3.37-1.22-3.37-1.22-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.63.07-.63 1 .07 1.53 1.06 1.53 1.06.9 1.57 2.36 1.12 2.93.86.09-.67.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.04 1.03-2.76-.1-.26-.45-1.31.1-2.72 0 0 .84-.28 2.75 1.05A9.3 9.3 0 0 1 12 6.93c.85 0 1.7.12 2.5.34 1.9-1.33 2.74-1.05 2.74-1.05.55 1.41.2 2.46.1 2.72.64.72 1.03 1.64 1.03 2.76 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9v2.82c0 .27.18.59.69.49A10.08 10.08 0 0 0 22 12.26C22 6.58 17.52 2 12 2Z"/>
+              </svg>
+              GitHub
+            </a>
+          </div>
+        </article>
 
       </div>
     </section>
@@ -97,7 +168,7 @@
   </main>
 
   <footer>
-    <p>&copy; <span id="anio"></span> [NOMBRE DE TU EMPRESA]</p>     <!-- PERSONALIZA -->
+    <p>&copy; <span id="anio"></span> ACADEX</p>
   </footer>
 
   <script src="js/main.js"></script>

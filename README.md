@@ -1,15 +1,15 @@
-# [NOMBRE DE TU EMPRESA]
+# [Acadex]
 
-Hoja de vida digital / portafolio web de **[NOMBRE DE TU EMPRESA]**, empresa
+Hoja de vida digital / portafolio web de **ACADEX**, empresa
 ficticia del proyecto formativo del programa Tecnología en Análisis y
 Desarrollo de Software (ADSO) - SENA, Centro de Comercio y Servicios,
 Regional Bolívar.
 
 ## Equipo de desarrollo
 
-- [Nombre integrante 1] - Líder del repositorio / Identidad de marca
-- [Nombre integrante 2] - Buscador de integrantes por habilidad
-- [Nombre integrante 3] - Formulario de contacto con validación
+- [Michael Morales integrante 1] - Líder del repositorio / Identidad de marca
+- [Stiven Conrado integrante 2] - Buscador de integrantes por habilidad
+- [Erick Cantillo integrante 3] - Formulario de contacto con validación
 
 ## Estructura del proyecto
 
@@ -21,9 +21,11 @@ PortafolioDigitalADSO/
 ├── js/
 │   └── main.js
 ├── img/
-│   ├── logo-placeholder.svg
+│   ├── logo.png
+│   ├── modo-oscuro.png
 │   ├── avatar-placeholder.svg
-│   └── equipo/        (coloca aquí las fotos reales del equipo)
+│   ├── stiven.jpeg
+│   └── erickjr.jpg
 └── README.md
 ```
 
